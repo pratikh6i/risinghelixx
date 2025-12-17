@@ -290,8 +290,8 @@ export default function Home() {
                         <button
                             onClick={() => setSelectedKeyStage('all')}
                             className={`px-6 py-3 rounded-xl font-medium transition-all ${selectedKeyStage === 'all'
-                                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
-                                    : 'bg-white text-gray-600 hover:bg-gray-50 shadow'
+                                ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
+                                : 'bg-white text-gray-600 hover:bg-gray-50 shadow'
                                 }`}
                         >
                             All Stages
@@ -299,10 +299,10 @@ export default function Home() {
                         {keyStages.map((stage) => (
                             <button
                                 key={stage.id}
-                                onClick={() => setSelectedKeyStage(stage.id)}
+                                onClick={() => setSelectedKeyStage(prev => prev === stage.id ? 'all' : stage.id)}
                                 className={`px-6 py-3 rounded-xl font-medium transition-all ${selectedKeyStage === stage.id
-                                        ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
-                                        : 'bg-white text-gray-600 hover:bg-gray-50 shadow'
+                                    ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
+                                    : 'bg-white text-gray-600 hover:bg-gray-50 shadow'
                                     }`}
                             >
                                 <span className="block text-sm">{stage.name}</span>
