@@ -7,6 +7,7 @@ import Courses from './pages/Courses'
 import AdvisoryBoard from './pages/AdvisoryBoard'
 import Contact from './pages/Contact'
 import IndustryCertificates from './pages/IndustryCertificates'
+import ForSchools from './pages/ForSchools'
 import ComingSoon from './pages/ComingSoon'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/advisory-board" element={<AdvisoryBoard />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/industry-certificates" element={<IndustryCertificates />} />
+                    <Route path="/for-schools" element={<ForSchools />} />
 
                     {/* Coming Soon Pages */}
                     <Route path="/careers" element={<ComingSoon />} />
@@ -32,6 +34,7 @@ function App() {
                     <Route path="/help" element={<ComingSoon />} />
                     <Route path="/privacy" element={<ComingSoon />} />
                     <Route path="/terms" element={<ComingSoon />} />
+                    <Route path="/profile" element={<ComingSoon />} />
 
                     {/* Catch all - 404 */}
                     <Route path="*" element={<ComingSoon />} />
