@@ -312,10 +312,14 @@ export default function Home() {
                     </div>
 
                     {/* Course Cards */}
-                    <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {filteredPythonCourses.map((course) => (
-                            <StaggerItem key={course.id}>
+                    {filteredPythonCourses.length > 0 ? (
+                        <div key={selectedKeyStage} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {filteredPythonCourses.map((course, index) => (
                                 <motion.div
+                                    key={course.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1, duration: 0.4 }}
                                     whileHover={{ y: -10 }}
                                     className="card overflow-hidden group h-full"
                                 >
@@ -343,9 +347,19 @@ export default function Home() {
                                         </Link>
                                     </div>
                                 </motion.div>
-                            </StaggerItem>
-                        ))}
-                    </StaggerContainer>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="text-center py-12">
+                            <p className="text-gray-500">No courses found for this Key Stage.</p>
+                            <button
+                                onClick={() => setSelectedKeyStage('all')}
+                                className="mt-4 text-primary-600 font-medium hover:underline"
+                            >
+                                View all courses
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
 

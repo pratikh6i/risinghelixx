@@ -192,84 +192,86 @@ export default function Courses() {
                     </div>
 
                     {filteredCourses.length > 0 ? (
-                        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {filteredCourses.map((course) => (
-                                <StaggerItem key={course.id}>
-                                    <motion.div
-                                        whileHover={{ y: -10 }}
-                                        className={`card overflow-hidden group h-full flex flex-col ${course.popular ? 'ring-2 ring-primary-500' : ''}`}
-                                    >
-                                        {course.popular && (
-                                            <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-center text-sm font-bold py-2">
-                                                Most Popular
+                        <div key={`${selectedType}-${selectedKeyStage}-${searchQuery}`} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {filteredCourses.map((course, index) => (
+                                <motion.div
+                                    key={course.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.08, duration: 0.4 }}
+                                    whileHover={{ y: -10 }}
+                                    className={`card overflow-hidden group h-full flex flex-col ${course.popular ? 'ring-2 ring-primary-500' : ''}`}
+                                >
+                                    {course.popular && (
+                                        <div className="bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-center text-sm font-bold py-2">
+                                            Most Popular
+                                        </div>
+                                    )}
+
+                                    <div className="relative h-48 overflow-hidden">
+                                        <img
+                                            src={course.image}
+                                            alt={course.name}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                        <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${course.color}`}>
+                                            {course.badge}
+                                        </div>
+                                        {course.isSubscription && (
+                                            <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-white text-primary-600">
+                                                Monthly
                                             </div>
                                         )}
+                                    </div>
 
-                                        <div className="relative h-48 overflow-hidden">
-                                            <img
-                                                src={course.image}
-                                                alt={course.name}
-                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                            />
-                                            <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${course.color}`}>
-                                                {course.badge}
-                                            </div>
-                                            {course.isSubscription && (
-                                                <div className="absolute bottom-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-white text-primary-600">
-                                                    Monthly
-                                                </div>
+                                    <div className="p-6 flex flex-col flex-grow">
+                                        <h3 className="text-xl font-bold text-dark mb-1">{course.name}</h3>
+                                        <p className="text-sm text-primary-600 font-medium mb-2">{course.subtitle}</p>
+                                        <p className="text-sm text-gray-500 mb-4 line-clamp-2">{course.description}</p>
+
+                                        {/* Course Meta */}
+                                        <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                                            <span>{course.ageRange}</span>
+                                            <span>•</span>
+                                            <span>{course.level}</span>
+                                            {course.duration && (
+                                                <>
+                                                    <span>•</span>
+                                                    <span>{course.duration}</span>
+                                                </>
                                             )}
                                         </div>
 
-                                        <div className="p-6 flex flex-col flex-grow">
-                                            <h3 className="text-xl font-bold text-dark mb-1">{course.name}</h3>
-                                            <p className="text-sm text-primary-600 font-medium mb-2">{course.subtitle}</p>
-                                            <p className="text-sm text-gray-500 mb-4 line-clamp-2">{course.description}</p>
+                                        {/* Features Preview */}
+                                        <ul className="space-y-2 mb-6 flex-grow">
+                                            {course.features.slice(0, 3).map((feature, i) => (
+                                                <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                                                    <CheckCircle2 className="w-4 h-4 text-accent-500 shrink-0" />
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
 
-                                            {/* Course Meta */}
-                                            <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                                                <span>{course.ageRange}</span>
-                                                <span>•</span>
-                                                <span>{course.level}</span>
-                                                {course.duration && (
-                                                    <>
-                                                        <span>•</span>
-                                                        <span>{course.duration}</span>
-                                                    </>
+                                        {/* Price & CTA */}
+                                        <div className="mt-auto">
+                                            <div className="flex items-baseline gap-2 mb-4">
+                                                <span className="text-3xl font-bold text-primary-600">
+                                                    {formatPrice(course.priceGBP, course.priceINR, currency)}
+                                                </span>
+                                                {course.isSubscription && (
+                                                    <span className="text-gray-400">/month</span>
                                                 )}
                                             </div>
-
-                                            {/* Features Preview */}
-                                            <ul className="space-y-2 mb-6 flex-grow">
-                                                {course.features.slice(0, 3).map((feature, i) => (
-                                                    <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                                                        <CheckCircle2 className="w-4 h-4 text-accent-500 shrink-0" />
-                                                        {feature}
-                                                    </li>
-                                                ))}
-                                            </ul>
-
-                                            {/* Price & CTA */}
-                                            <div className="mt-auto">
-                                                <div className="flex items-baseline gap-2 mb-4">
-                                                    <span className="text-3xl font-bold text-primary-600">
-                                                        {formatPrice(course.priceGBP, course.priceINR, currency)}
-                                                    </span>
-                                                    {course.isSubscription && (
-                                                        <span className="text-gray-400">/month</span>
-                                                    )}
-                                                </div>
-                                                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                                                    <button className="w-full btn-primary">
-                                                        {course.isSubscription ? 'Subscribe Now' : 'Enroll Now'}
-                                                    </button>
-                                                </a>
-                                            </div>
+                                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                                                <button className="w-full btn-primary">
+                                                    {course.isSubscription ? 'Subscribe Now' : 'Enroll Now'}
+                                                </button>
+                                            </a>
                                         </div>
-                                    </motion.div>
-                                </StaggerItem>
+                                    </div>
+                                </motion.div>
                             ))}
-                        </StaggerContainer>
+                        </div>
                     ) : (
                         <AnimatedSection className="text-center py-16">
                             <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
