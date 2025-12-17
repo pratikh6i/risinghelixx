@@ -14,7 +14,7 @@ const advisors = [
         expertise: ['EdTech', 'Curriculum Design', 'Higher Education'],
         linkedin: 'https://linkedin.com',
         twitter: 'https://twitter.com',
-        email: 'elizabeth@risinghelix.com',
+        email: 'elizabeth@risinghelixx.com',
     },
     {
         name: 'Marcus Williams',
@@ -23,7 +23,7 @@ const advisors = [
         bio: 'Ex-Google Engineering Director. Led teams building AI-powered learning platforms reaching millions of users globally.',
         expertise: ['AI/ML', 'Platform Architecture', 'Scalability'],
         linkedin: 'https://linkedin.com',
-        email: 'marcus@risinghelix.com',
+        email: 'marcus@risinghelixx.com',
     },
     {
         name: 'Dr. Priya Sharma',
@@ -41,7 +41,7 @@ const advisors = [
         bio: 'Former VP at Microsoft. Built strategic partnerships with 500+ organizations for workforce development programs.',
         expertise: ['Corporate Training', 'Partnerships', 'Strategy'],
         linkedin: 'https://linkedin.com',
-        email: 'james@risinghelix.com',
+        email: 'james@risinghelixx.com',
     },
     {
         name: 'Dr. Aisha Mohammed',
@@ -112,7 +112,7 @@ export default function AdvisoryBoard() {
                             transition={{ delay: 0.4 }}
                             className="text-xl text-gray-600"
                         >
-                            Meet the visionary leaders guiding Rising Helix's mission to transform education.
+                            Meet the visionary leaders guiding Rising Helixx's mission to transform education.
                             Our advisors bring decades of experience from the world's leading institutions
                             and organizations.
                         </motion.p>

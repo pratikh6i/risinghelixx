@@ -19,22 +19,22 @@ const contactMethods = [
         icon: Mail,
         title: 'Email Us',
         description: 'We\'ll respond within 24 hours',
-        value: 'hello@risinghelix.com',
-        href: 'mailto:hello@risinghelix.com',
+        value: 'director@risinghelixx.com',
+        href: 'mailto:director@risinghelixx.com',
     },
     {
         icon: Phone,
         title: 'Call Us',
         description: 'Mon-Fri from 8am to 6pm',
-        value: '+44 123 456 789',
-        href: 'tel:+44123456789',
+        value: '+91 7972711924',
+        href: 'tel:+917972711924',
     },
     {
         icon: MapPin,
         title: 'Visit Us',
         description: 'Come say hello',
-        value: 'London, United Kingdom',
-        href: 'https://maps.google.com',
+        value: 'Jaysingpur, Kolhapur, India',
+        href: 'https://maps.google.com/?q=Jaysingpur,Kolhapur,India',
     },
 ]
 
@@ -58,12 +58,14 @@ const faqs = [
     },
 ]
 
-// Page transition variants
 const pageVariants = {
     initial: { opacity: 0 },
     animate: { opacity: 1, transition: { duration: 0.5 } },
     exit: { opacity: 0, transition: { duration: 0.3 } },
 }
+
+const WHATSAPP_NUMBER = '917972711924'
+const WHATSAPP_MESSAGE = 'Hi! I\'d love to hear more about Rising Helixx courses.'
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -76,6 +78,8 @@ export default function Contact() {
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [expandedFaq, setExpandedFaq] = useState(null)
 
+    const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
+
     const handleInputChange = (e) => {
         const { name, value } = e.target
         setFormData(prev => ({ ...prev, [name]: value }))
@@ -85,15 +89,24 @@ export default function Contact() {
         e.preventDefault()
         setIsSubmitting(true)
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000))
+        // Create mailto link with form data
+        const mailtoLink = `mailto:pratikpshetti45@gmail.com?cc=yashvardhan.117.shirgave@gmail.com&subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+            `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent from Rising Helixx Contact Form`
+        )}`
 
-        console.log('Form submitted:', formData)
+        // Open email client
+        window.location.href = mailtoLink
+
+        // Also open WhatsApp as backup for lead capture
+        setTimeout(() => {
+            const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\nMessage: ${formData.message}`
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`, '_blank')
+        }, 1000)
+
         setIsSubmitted(true)
         setIsSubmitting(false)
         setFormData({ name: '', email: '', subject: '', message: '' })
 
-        // Reset success message after 5 seconds
         setTimeout(() => setIsSubmitted(false), 5000)
     }
 
@@ -113,15 +126,19 @@ export default function Contact() {
 
                 <div className="container-custom relative">
                     <div className="max-w-3xl mx-auto text-center">
-                        <motion.div
+                        <motion.a
+                            href={whatsappLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 rounded-full text-primary-700 text-sm font-medium mb-6"
+                            whileHover={{ scale: 1.05 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 hover:bg-green-200 rounded-full text-green-700 text-sm font-medium mb-6 cursor-pointer transition-colors"
                         >
                             <MessageSquare className="w-4 h-4" />
-                            <span>We'd Love to Hear From You</span>
-                        </motion.div>
+                            <span>We'd Love to Hear From You - Chat on WhatsApp!</span>
+                        </motion.a>
 
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
@@ -327,6 +344,15 @@ export default function Contact() {
                                         <Globe className="w-5 h-5 text-primary-500" />
                                         <span>Available worldwide</span>
                                     </div>
+                                    <a
+                                        href={whatsappLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-3 text-green-600 hover:text-green-700 font-medium"
+                                    >
+                                        <MessageSquare className="w-5 h-5" />
+                                        <span>Quick Chat on WhatsApp</span>
+                                    </a>
                                 </div>
                             </div>
                         </AnimatedSection>

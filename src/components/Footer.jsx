@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
-    GraduationCap,
     Mail,
     Phone,
     MapPin,
@@ -9,7 +8,8 @@ import {
     Linkedin,
     Instagram,
     Youtube,
-    ArrowUpRight
+    ArrowUpRight,
+    MessageCircle
 } from 'lucide-react'
 
 const footerLinks = {
@@ -21,9 +21,9 @@ const footerLinks = {
     ],
     courses: [
         { name: 'All Courses', path: '/courses' },
-        { name: 'Popular', path: '/courses?filter=popular' },
-        { name: 'New Releases', path: '/courses?filter=new' },
-        { name: 'Certifications', path: '/certifications' },
+        { name: 'Popular', path: '/popular' },
+        { name: 'New Releases', path: '/new-releases' },
+        { name: 'Certifications', path: '/industry-certificates' },
     ],
     support: [
         { name: 'Help Center', path: '/help' },
@@ -40,7 +40,12 @@ const socialLinks = [
     { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
 ]
 
+const WHATSAPP_NUMBER = '917972711924'
+const WHATSAPP_MESSAGE = 'Hi! I\'m interested in learning more about Rising Helixx courses.'
+
 export default function Footer() {
+    const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
+
     return (
         <footer className="bg-dark text-white relative overflow-hidden">
             {/* Background decoration */}
@@ -55,10 +60,10 @@ export default function Footer() {
                     {/* Brand Column */}
                     <div className="lg:col-span-2">
                         <Link to="/" className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center">
-                                <GraduationCap className="w-6 h-6 text-white" />
+                            <div className="w-10 h-10 rounded-xl overflow-hidden">
+                                <img src="/assets/logo.svg" alt="Rising Helixx" className="w-10 h-10" />
                             </div>
-                            <span className="text-xl font-display font-bold">Rising Helix</span>
+                            <span className="text-xl font-display font-bold">Rising Helixx</span>
                         </Link>
                         <p className="text-gray-400 mb-6 max-w-sm">
                             Empowering the next generation of learners with cutting-edge courses
@@ -68,23 +73,32 @@ export default function Footer() {
                         {/* Contact Info */}
                         <div className="space-y-3">
                             <a
-                                href="mailto:hello@risinghelix.com"
+                                href="mailto:director@risinghelixx.com"
                                 className="flex items-center gap-3 text-gray-400 hover:text-primary-400 transition-colors"
                             >
                                 <Mail className="w-4 h-4" />
-                                <span>hello@risinghelix.com</span>
+                                <span>director@risinghelixx.com</span>
                             </a>
                             <a
-                                href="tel:+44123456789"
+                                href="tel:+917972711924"
                                 className="flex items-center gap-3 text-gray-400 hover:text-primary-400 transition-colors"
                             >
                                 <Phone className="w-4 h-4" />
-                                <span>+44 123 456 789</span>
+                                <span>+91 7972711924</span>
                             </a>
                             <div className="flex items-center gap-3 text-gray-400">
                                 <MapPin className="w-4 h-4" />
-                                <span>London, United Kingdom</span>
+                                <span>Jaysingpur, Kolhapur, India</span>
                             </div>
+                            <a
+                                href={whatsappLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 text-green-400 hover:text-green-300 transition-colors"
+                            >
+                                <MessageCircle className="w-4 h-4" />
+                                <span>Chat on WhatsApp</span>
+                            </a>
                         </div>
                     </div>
 
@@ -144,7 +158,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="py-6 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-gray-400 text-sm">
-                        © {new Date().getFullYear()} Rising Helix. All rights reserved.
+                        © {new Date().getFullYear()} Rising Helixx. All rights reserved.
                     </p>
 
                     {/* Social Links */}

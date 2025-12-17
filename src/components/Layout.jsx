@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import AuthModal from './AuthModal'
+import WhatsAppButton from './WhatsAppButton'
 
 export default function Layout({ children }) {
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
@@ -15,6 +16,8 @@ export default function Layout({ children }) {
             </main>
 
             <Footer />
+
+            <WhatsAppButton />
 
             <AuthModal
                 isOpen={isAuthModalOpen}

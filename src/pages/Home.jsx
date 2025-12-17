@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
@@ -14,12 +15,13 @@ import {
 } from 'lucide-react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection'
 import PaymentCalculator from '../components/PaymentCalculator'
+import VideoModal from '../components/VideoModal'
 
 // Stats data
 const stats = [
-    { value: '10K+', label: 'Students Enrolled', icon: Users },
-    { value: '50+', label: 'Expert Instructors', icon: Award },
-    { value: '100+', label: 'Courses Available', icon: BookOpen },
+    { value: '500+', label: 'Students Enrolled', icon: Users },
+    { value: '10+', label: 'Expert Instructors', icon: Award },
+    { value: '5', label: 'Courses Available', icon: BookOpen },
     { value: '95%', label: 'Success Rate', icon: TrendingUp },
 ]
 
@@ -46,21 +48,21 @@ const features = [
 const testimonials = [
     {
         name: 'Sarah Johnson',
-        role: 'Software Developer at Google',
+        role: 'Software Developer',
         image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
-        quote: 'Rising Helix transformed my career. The Full-Stack bootcamp gave me skills that landed me my dream job.',
+        quote: 'Rising Helixx transformed my career. The bootcamp gave me skills that landed me my dream job.',
         rating: 5,
     },
     {
         name: 'Michael Chen',
-        role: 'Data Scientist at Amazon',
+        role: 'Data Scientist',
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
         quote: 'The Data Science course was incredibly comprehensive. The mentorship was invaluable.',
         rating: 5,
     },
     {
         name: 'Emily Williams',
-        role: 'UX Lead at Spotify',
+        role: 'UX Designer',
         image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
         quote: 'Best investment in my career. The design course exceeded all my expectations.',
         rating: 5,
@@ -74,7 +76,13 @@ const pageVariants = {
     exit: { opacity: 0, transition: { duration: 0.3 } },
 }
 
+const WHATSAPP_NUMBER = '917972711924'
+const WHATSAPP_MESSAGE = 'Hi! I\'m interested in learning more about Rising Helixx courses.'
+
 export default function Home() {
+    const [isVideoOpen, setIsVideoOpen] = useState(false)
+    const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
+
     return (
         <motion.div
             variants={pageVariants}
@@ -123,7 +131,7 @@ export default function Home() {
                                 className="text-xl text-gray-600 mb-8 max-w-xl"
                             >
                                 Transform your career with world-class courses taught by industry experts.
-                                Join thousands of learners achieving their goals.
+                                Join hundreds of learners achieving their goals with Rising Helixx.
                             </motion.p>
 
                             <motion.div
@@ -145,6 +153,7 @@ export default function Home() {
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
+                                    onClick={() => setIsVideoOpen(true)}
                                     className="btn-secondary text-lg px-8 py-4 flex items-center gap-2"
                                 >
                                     <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center">
@@ -226,7 +235,7 @@ export default function Home() {
                                             ))}
                                         </div>
                                         <div>
-                                            <p className="font-bold text-dark">10K+</p>
+                                            <p className="font-bold text-dark">500+</p>
                                             <p className="text-xs text-gray-500">Active Students</p>
                                         </div>
                                     </div>
@@ -347,7 +356,7 @@ export default function Home() {
                             <span className="gradient-text">Graduates</span>
                         </h2>
                         <p className="text-xl text-gray-600">
-                            Join thousands of successful professionals who transformed their careers with Rising Helix.
+                            Join hundreds of successful professionals who transformed their careers with Rising Helixx.
                         </p>
                     </AnimatedSection>
 
@@ -414,19 +423,26 @@ export default function Home() {
                                     <ArrowRight className="w-5 h-5 ml-2 inline" />
                                 </motion.button>
                             </Link>
-                            <Link to="/contact">
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     className="px-8 py-4 rounded-xl border-2 border-white/20 text-white font-semibold hover:bg-white/10 transition-colors"
                                 >
-                                    Contact Us
+                                    Chat with Us
                                 </motion.button>
-                            </Link>
+                            </a>
                         </div>
                     </AnimatedSection>
                 </div>
             </section>
+
+            {/* Video Modal */}
+            <VideoModal
+                isOpen={isVideoOpen}
+                onClose={() => setIsVideoOpen(false)}
+                videoId="jmoPo11ktN4"
+            />
         </motion.div>
     )
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, GraduationCap, ChevronDown } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const navLinks = [
     { name: 'Home', path: '/' },
@@ -9,6 +9,7 @@ const navLinks = [
     { name: 'Courses', path: '/courses' },
     { name: 'Advisory Board', path: '/advisory-board' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Industry Certificates', path: '/industry-certificates' },
 ]
 
 export default function Navbar({ onLoginClick }) {
@@ -35,8 +36,8 @@ export default function Navbar({ onLoginClick }) {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5, ease: 'easeOut' }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                        ? 'bg-white/80 backdrop-blur-lg shadow-lg border-b border-gray-100'
-                        : 'bg-transparent'
+                    ? 'bg-white/80 backdrop-blur-lg shadow-lg border-b border-gray-100'
+                    : 'bg-transparent'
                     }`}
             >
                 <div className="container-custom">
@@ -46,22 +47,26 @@ export default function Navbar({ onLoginClick }) {
                             <motion.div
                                 whileHover={{ rotate: 360 }}
                                 transition={{ duration: 0.5 }}
-                                className="w-10 h-10 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/25"
+                                className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden"
                             >
-                                <GraduationCap className="w-6 h-6 text-white" />
+                                <img
+                                    src="/assets/logo.svg"
+                                    alt="Rising Helixx Logo"
+                                    className="w-10 h-10"
+                                />
                             </motion.div>
                             <span className="text-xl font-display font-bold text-dark group-hover:text-primary-600 transition-colors">
-                                Rising Helix
+                                Rising Helixx
                             </span>
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <div className="hidden md:flex items-center gap-1">
+                        <div className="hidden lg:flex items-center gap-1">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.path}
                                     to={link.path}
-                                    className="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors"
+                                    className="relative px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors"
                                 >
                                     {link.name}
                                     {location.pathname === link.path && (
@@ -88,6 +93,7 @@ export default function Navbar({ onLoginClick }) {
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
+                                onClick={onLoginClick}
                                 className="btn-primary text-sm"
                             >
                                 Get Started
@@ -98,7 +104,7 @@ export default function Navbar({ onLoginClick }) {
                         <motion.button
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="md:hidden p-2 text-gray-600 hover:text-primary-600 transition-colors"
+                            className="lg:hidden p-2 text-gray-600 hover:text-primary-600 transition-colors"
                         >
                             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                         </motion.button>
@@ -114,7 +120,7 @@ export default function Navbar({ onLoginClick }) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-x-0 top-20 z-40 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-xl md:hidden"
+                        className="fixed inset-x-0 top-20 z-40 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-xl lg:hidden"
                     >
                         <div className="container-custom py-6">
                             <div className="flex flex-col gap-2">
@@ -128,8 +134,8 @@ export default function Navbar({ onLoginClick }) {
                                         <Link
                                             to={link.path}
                                             className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${location.pathname === link.path
-                                                    ? 'bg-primary-50 text-primary-600'
-                                                    : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600'
+                                                ? 'bg-primary-50 text-primary-600'
+                                                : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600'
                                                 }`}
                                         >
                                             {link.name}

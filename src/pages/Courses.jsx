@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { Search, Filter, BookOpen, ArrowRight } from 'lucide-react'
+import { Search, BookOpen, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection'
 import CourseCard from '../components/CourseCard'
@@ -23,22 +23,33 @@ const pageVariants = {
     exit: { opacity: 0, transition: { duration: 0.3 } },
 }
 
+const WHATSAPP_NUMBER = '917972711924'
+const WHATSAPP_MESSAGE = 'Hi! I need help choosing the right Rising Helixx course for me.'
+
 export default function Courses() {
     const [searchQuery, setSearchQuery] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('all')
     const [currency, setCurrency] = useState('GBP')
     const [selectedCourse, setSelectedCourse] = useState(null)
 
+    const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
+
     // Filter courses based on search and category
-    const filteredCourses = courses.filter((course) => {
-        const matchesSearch = course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            course.description.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredCourses = useMemo(() => {
+        return courses.filter((course) => {
+            const searchLower = searchQuery.toLowerCase()
+            const matchesSearch =
+                course.name.toLowerCase().includes(searchLower) ||
+                course.description.toLowerCase().includes(searchLower) ||
+                course.level.toLowerCase().includes(searchLower) ||
+                course.features.some(f => f.toLowerCase().includes(searchLower))
 
-        // For demo, all courses match any category
-        const matchesCategory = selectedCategory === 'all' || true
+            // For demo, all courses match any category
+            const matchesCategory = selectedCategory === 'all' || true
 
-        return matchesSearch && matchesCategory
-    })
+            return matchesSearch && matchesCategory
+        })
+    }, [searchQuery, selectedCategory])
 
     return (
         <motion.div
@@ -63,7 +74,7 @@ export default function Courses() {
                             className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 rounded-full text-primary-700 text-sm font-medium mb-6"
                         >
                             <BookOpen className="w-4 h-4" />
-                            <span>100+ Courses Available</span>
+                            <span>{courses.length} Courses Available</span>
                         </motion.div>
 
                         <motion.h1
@@ -96,12 +107,31 @@ export default function Courses() {
                             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                             <input
                                 type="text"
-                                placeholder="Search courses..."
+                                placeholder="Search courses by name, skill, or topic..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className="w-full pl-12 pr-4 py-4 rounded-2xl border-2 border-gray-200 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 outline-none transition-all text-lg shadow-lg shadow-gray-200/50"
                             />
+                            {searchQuery && (
+                                <button
+                                    onClick={() => setSearchQuery('')}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                                >
+                                    ✕
+                                </button>
+                            )}
                         </motion.div>
+
+                        {/* Search hint */}
+                        {searchQuery && (
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="mt-4 text-sm text-gray-500"
+                            >
+                                Found {filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''} matching "{searchQuery}"
+                            </motion.p>
+                        )}
                     </div>
                 </div>
             </section>
@@ -175,7 +205,16 @@ export default function Courses() {
                                         <Search className="w-10 h-10 text-gray-400" />
                                     </div>
                                     <h3 className="text-xl font-bold text-dark mb-2">No courses found</h3>
-                                    <p className="text-gray-500">Try adjusting your search or filters</p>
+                                    <p className="text-gray-500 mb-4">Try adjusting your search or filters</p>
+                                    <button
+                                        onClick={() => {
+                                            setSearchQuery('')
+                                            setSelectedCategory('all')
+                                        }}
+                                        className="text-primary-600 font-medium hover:underline"
+                                    >
+                                        Clear all filters
+                                    </button>
                                 </AnimatedSection>
                             )}
                         </div>
@@ -201,7 +240,7 @@ export default function Courses() {
                             Our learning advisors can help you find the perfect course based on
                             your goals, experience level, and schedule.
                         </p>
-                        <Link to="/contact">
+                        <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -210,7 +249,7 @@ export default function Courses() {
                                 Get Free Consultation
                                 <ArrowRight className="w-5 h-5 ml-2 inline" />
                             </motion.button>
-                        </Link>
+                        </a>
                     </AnimatedSection>
                 </div>
             </section>

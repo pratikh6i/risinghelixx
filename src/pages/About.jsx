@@ -38,7 +38,7 @@ const values = [
 
 // Milestones
 const milestones = [
-    { year: '2019', title: 'Founded', description: 'Rising Helix was born with a vision to democratize quality education.' },
+    { year: '2019', title: 'Founded', description: 'Rising Helixx was born with a vision to democratize quality education.' },
     { year: '2020', title: 'First 1,000 Students', description: 'Reached our first milestone during the global shift to online learning.' },
     { year: '2021', title: 'Global Expansion', description: 'Extended our reach to 50+ countries with multilingual support.' },
     { year: '2022', title: 'Industry Partnerships', description: 'Partnered with leading tech companies for job placement programs.' },
@@ -261,7 +261,7 @@ export default function About() {
                             <span className="gradient-text">Leadership</span>
                         </h2>
                         <p className="text-xl text-gray-600">
-                            Meet the passionate individuals driving Rising Helix's mission forward.
+                            Meet the passionate individuals driving Rising Helixx's mission forward.
                         </p>
                     </AnimatedSection>
 
@@ -305,7 +305,7 @@ export default function About() {
                         </h2>
                         <p className="text-xl text-gray-300 mb-8">
                             Whether you're looking to learn new skills or share your expertise,
-                            there's a place for you at Rising Helix.
+                            there's a place for you at Rising Helixx.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <Link to="/courses">
