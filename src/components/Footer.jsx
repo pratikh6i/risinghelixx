@@ -40,6 +40,10 @@ const socialLinks = [
     { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
 ]
 
+// Contact Constants
+const CONTACT_PHONE = '+91 7972711924'
+const CONTACT_EMAIL = 'director@risinghelixx.com'
+const CONTACT_LOCATION = 'Jaysingpur, Kolhapur, India'
 const WHATSAPP_NUMBER = '917972711924'
 const WHATSAPP_MESSAGE = 'Hi! I\'m interested in learning more about Rising Helixx courses.'
 
@@ -73,22 +77,22 @@ export default function Footer() {
                         {/* Contact Info */}
                         <div className="space-y-3">
                             <a
-                                href="mailto:director@risinghelixx.com"
+                                href={`mailto:${CONTACT_EMAIL}`}
                                 className="flex items-center gap-3 text-gray-400 hover:text-primary-400 transition-colors"
                             >
                                 <Mail className="w-4 h-4" />
-                                <span>director@risinghelixx.com</span>
+                                <span>{CONTACT_EMAIL}</span>
                             </a>
                             <a
-                                href="tel:+917972711924"
+                                href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}
                                 className="flex items-center gap-3 text-gray-400 hover:text-primary-400 transition-colors"
                             >
                                 <Phone className="w-4 h-4" />
-                                <span>+91 7972711924</span>
+                                <span>{CONTACT_PHONE}</span>
                             </a>
                             <div className="flex items-center gap-3 text-gray-400">
                                 <MapPin className="w-4 h-4" />
-                                <span>Jaysingpur, Kolhapur, India</span>
+                                <span>{CONTACT_LOCATION}</span>
                             </div>
                             <a
                                 href={whatsappLink}

@@ -27,3 +27,9 @@ export default function WhatsAppButton() {
         </motion.a>
     )
 }
+
+// Export constants for use in other components
+export const CONTACT_PHONE = '+91 7972711924'
+export const CONTACT_EMAIL = 'director@risinghelixx.com'
+export const CONTACT_LOCATION = 'Jaysingpur, Kolhapur, India'
+export const CONTACT_WHATSAPP = '917972711924'
