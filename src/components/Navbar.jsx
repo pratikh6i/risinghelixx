@@ -10,7 +10,7 @@ const navLinks = [
     { name: 'Courses', path: '/courses' },
     { name: 'Advisory Board', path: '/advisory-board' },
     { name: 'Contact', path: '/contact' },
-    { name: 'Industry Certificates', path: '/industry-certificates' },
+    // { name: 'Industry Certificates', path: '/industry-certificates' }, // Temporarily hidden
 ]
 
 export default function Navbar({ onLoginClick }) {
@@ -166,24 +166,15 @@ export default function Navbar({ onLoginClick }) {
                                     </AnimatePresence>
                                 </div>
                             ) : (
-                                <>
+                                <Link to="/contact">
                                     <motion.button
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        onClick={onLoginClick}
-                                        className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-primary-600 transition-colors"
-                                    >
-                                        Login
-                                    </motion.button>
-                                    <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        onClick={onLoginClick}
                                         className="btn-primary text-sm"
                                     >
-                                        Get Started
+                                        Enquire Now
                                     </motion.button>
-                                </>
+                                </Link>
                             )}
                         </div>
 
@@ -258,12 +249,11 @@ export default function Navbar({ onLoginClick }) {
                                             Logout
                                         </button>
                                     ) : (
-                                        <button
-                                            onClick={onLoginClick}
-                                            className="w-full btn-primary"
-                                        >
-                                            Get Started
-                                        </button>
+                                        <Link to="/contact" className="w-full">
+                                            <button className="w-full btn-primary">
+                                                Enquire Now
+                                            </button>
+                                        </Link>
                                     )}
                                 </motion.div>
                             </div>

@@ -26,15 +26,8 @@ const contactMethods = [
         icon: Phone,
         title: 'Call Us',
         description: 'Mon-Fri from 8am to 6pm',
-        value: '+91 7972711924',
-        href: 'tel:+917972711924',
-    },
-    {
-        icon: MapPin,
-        title: 'Visit Us',
-        description: 'Come say hello',
-        value: 'Jaysingpur, Kolhapur, India',
-        href: 'https://maps.google.com/?q=Jaysingpur,Kolhapur,India',
+        value: '+91 9270211791',
+        href: 'tel:+919270211791',
     },
 ]
 
@@ -64,7 +57,7 @@ const pageVariants = {
     exit: { opacity: 0, transition: { duration: 0.3 } },
 }
 
-const WHATSAPP_NUMBER = '917972711924'
+const WHATSAPP_NUMBER = '919270211791'
 const WHATSAPP_MESSAGE = 'Hi! I\'d love to hear more about Rising Helixx courses.'
 
 export default function Contact() {

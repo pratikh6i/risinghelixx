@@ -41,10 +41,10 @@ const socialLinks = [
 ]
 
 // Contact Constants
-const CONTACT_PHONE = '+91 7972711924'
+const CONTACT_PHONE = '+91 9270211791'
 const CONTACT_EMAIL = 'director@risinghelixx.com'
-const CONTACT_LOCATION = 'Jaysingpur, Kolhapur, India'
-const WHATSAPP_NUMBER = '917972711924'
+const CONTACT_LOCATION = 'INDIA'
+const WHATSAPP_NUMBER = '919270211791'
 const WHATSAPP_MESSAGE = 'Hi! I\'m interested in learning more about Rising Helixx courses.'
 
 export default function Footer() {
@@ -91,7 +91,6 @@ export default function Footer() {
                                 <span>{CONTACT_PHONE}</span>
                             </a>
                             <div className="flex items-center gap-3 text-gray-400">
-                                <MapPin className="w-4 h-4" />
                                 <span>{CONTACT_LOCATION}</span>
                             </div>
                             <a

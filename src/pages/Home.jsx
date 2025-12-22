@@ -78,7 +78,7 @@ const pageVariants = {
     exit: { opacity: 0, transition: { duration: 0.3 } },
 }
 
-const WHATSAPP_NUMBER = '917972711924'
+const WHATSAPP_NUMBER = '919270211791'
 const WHATSAPP_MESSAGE = 'Hi! I\'m interested in Rising Helixx courses for my school/child.'
 
 export default function Home() {
@@ -167,23 +167,6 @@ export default function Home() {
                                         For Schools
                                     </motion.button>
                                 </Link>
-                            </motion.div>
-
-                            {/* Trust Badges */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: 0.7 }}
-                                className="mt-12 pt-8 border-t border-gray-200"
-                            >
-                                <p className="text-sm text-gray-500 mb-4">Trusted by schools across India & UK</p>
-                                <div className="flex flex-wrap items-center gap-6">
-                                    {['CBSE', 'ICSE', 'IB', 'Cambridge', 'State Boards'].map((board) => (
-                                        <span key={board} className="px-3 py-1 bg-gray-100 rounded-full text-sm font-medium text-gray-600">
-                                            {board}
-                                        </span>
-                                    ))}
-                                </div>
                             </motion.div>
                         </div>
 
@@ -337,12 +320,12 @@ export default function Home() {
                                         <h3 className="text-lg font-bold text-dark mb-1">{course.name}</h3>
                                         <p className="text-sm text-gray-500 mb-3">{course.subtitle}</p>
                                         <div className="flex items-center justify-between mb-4">
-                                            <span className="text-2xl font-bold text-primary-600">₹{course.priceINR.toLocaleString()}</span>
                                             <span className="text-sm text-gray-400">{course.duration}</span>
+                                            <span className="text-sm text-primary-600 font-medium">{course.level}</span>
                                         </div>
-                                        <Link to="/courses">
+                                        <Link to="/contact">
                                             <button className="w-full btn-primary text-sm py-2">
-                                                Learn More
+                                                Know More
                                             </button>
                                         </Link>
                                     </div>
@@ -402,10 +385,7 @@ export default function Home() {
                                     <div className="p-6">
                                         <h3 className="text-xl font-bold text-dark mb-1">{course.name}</h3>
                                         <p className="text-sm text-gray-500 mb-4">{course.subtitle}</p>
-                                        <div className="flex items-baseline gap-2 mb-4">
-                                            <span className="text-3xl font-bold text-primary-600">₹{course.priceINR.toLocaleString()}</span>
-                                            <span className="text-gray-400">/month</span>
-                                        </div>
+                                        <p className="text-sm text-primary-600 font-medium mb-4">{course.ageRange}</p>
                                         <ul className="space-y-2 mb-6">
                                             {course.features.slice(0, 4).map((feature, i) => (
                                                 <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
@@ -414,9 +394,9 @@ export default function Home() {
                                                 </li>
                                             ))}
                                         </ul>
-                                        <Link to="/courses">
+                                        <Link to="/contact">
                                             <button className="w-full btn-primary">
-                                                Subscribe Now
+                                                Know More
                                             </button>
                                         </Link>
                                     </div>

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 
-const WHATSAPP_NUMBER = '917972711924'
+const WHATSAPP_NUMBER = '919270211791'
 const WHATSAPP_MESSAGE = 'Hi! I\'m interested in learning more about Rising Helixx courses.'
 
 export default function WhatsAppButton() {
@@ -29,7 +29,7 @@ export default function WhatsAppButton() {
 }
 
 // Export constants for use in other components
-export const CONTACT_PHONE = '+91 7972711924'
+export const CONTACT_PHONE = '+91 9270211791'
 export const CONTACT_EMAIL = 'director@risinghelixx.com'
-export const CONTACT_LOCATION = 'Jaysingpur, Kolhapur, India'
-export const CONTACT_WHATSAPP = '917972711924'
+export const CONTACT_LOCATION = 'INDIA'
+export const CONTACT_WHATSAPP = '919270211791'

@@ -70,8 +70,8 @@ const pageVariants = {
 }
 
 const CONTACT_EMAIL = 'director@risinghelixx.com'
-const CONTACT_PHONE = '+91 7972711924'
-const WHATSAPP_NUMBER = '917972711924'
+const CONTACT_PHONE = '+91 9270211791'
+const WHATSAPP_NUMBER = '919270211791'
 
 export default function ForSchools() {
     const [formData, setFormData] = useState({
