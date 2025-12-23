@@ -7,14 +7,10 @@ import AdvisorCard from '../components/AdvisorCard'
 // Advisory board members
 const advisors = [
     {
-        name: 'Dr. Elizabeth Harper',
-        role: 'Education Strategy Advisor',
-        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
-        bio: 'Former Dean of Stanford\'s School of Education. 25+ years experience in curriculum design and educational technology innovation.',
-        expertise: ['EdTech', 'Curriculum Design', 'Higher Education'],
-        linkedin: 'https://linkedin.com',
-        twitter: 'https://twitter.com',
-        email: 'elizabeth@risinghelixx.com',
+        name: 'Dr. Liu Xin',
+        role: 'Ph.D. in Knowledge and Innovation Management',
+        image: '/assets/Dr_Liu_Xin.jpg',
+        bio: 'Distinguished scholar specializing in knowledge management and innovation. Brings extensive expertise in educational technology and organizational learning strategies.',
     },
     {
         name: 'Marcus Williams',

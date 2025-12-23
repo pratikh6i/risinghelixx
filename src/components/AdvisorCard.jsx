@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Linkedin, Twitter, Mail } from 'lucide-react'
 
 export default function AdvisorCard({ advisor }) {
     const [isFlipped, setIsFlipped] = useState(false)
@@ -67,57 +66,9 @@ export default function AdvisorCard({ advisor }) {
                             {advisor.bio}
                         </p>
                     </div>
-
-                    {/* Expertise Tags */}
-                    {advisor.expertise && (
-                        <div className="flex flex-wrap gap-2 mb-4">
-                            {advisor.expertise.map((skill) => (
-                                <span
-                                    key={skill}
-                                    className="px-3 py-1 bg-white/10 rounded-full text-white text-xs"
-                                >
-                                    {skill}
-                                </span>
-                            ))}
-                        </div>
-                    )}
-
-                    {/* Social Links */}
-                    <div className="flex items-center gap-3 pt-4 border-t border-white/20">
-                        {advisor.linkedin && (
-                            <a
-                                href={advisor.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                                onClick={(e) => e.stopPropagation()}
-                            >
-                                <Linkedin className="w-4 h-4" />
-                            </a>
-                        )}
-                        {advisor.twitter && (
-                            <a
-                                href={advisor.twitter}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                                onClick={(e) => e.stopPropagation()}
-                            >
-                                <Twitter className="w-4 h-4" />
-                            </a>
-                        )}
-                        {advisor.email && (
-                            <a
-                                href={`mailto:${advisor.email}`}
-                                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                                onClick={(e) => e.stopPropagation()}
-                            >
-                                <Mail className="w-4 h-4" />
-                            </a>
-                        )}
-                    </div>
                 </div>
             </motion.div>
         </motion.div>
     )
 }
+

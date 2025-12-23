@@ -82,25 +82,33 @@ export default function Contact() {
         e.preventDefault()
         setIsSubmitting(true)
 
-        // Create mailto link with form data
-        const mailtoLink = `mailto:pratikpshetti45@gmail.com?cc=yashvardhan.117.shirgave@gmail.com&subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-            `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent from Rising Helixx Contact Form`
-        )}`
+        try {
+            const response = await fetch('https://formspree.io/f/xykglqpb', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message,
+                }),
+            })
 
-        // Open email client
-        window.location.href = mailtoLink
-
-        // Also open WhatsApp as backup for lead capture
-        setTimeout(() => {
-            const whatsappMessage = `New Contact Form Submission:\n\nName: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\nMessage: ${formData.message}`
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`, '_blank')
-        }, 1000)
-
-        setIsSubmitted(true)
-        setIsSubmitting(false)
-        setFormData({ name: '', email: '', subject: '', message: '' })
-
-        setTimeout(() => setIsSubmitted(false), 5000)
+            if (response.ok) {
+                setIsSubmitted(true)
+                setFormData({ name: '', email: '', subject: '', message: '' })
+                setTimeout(() => setIsSubmitted(false), 5000)
+            } else {
+                alert('Failed to send message. Please try again.')
+            }
+        } catch (error) {
+            console.error('Form submission error:', error)
+            alert('Failed to send message. Please try again.')
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
