@@ -116,18 +116,136 @@ export default function AdvisoryBoard() {
                 </div>
             </section>
 
-            {/* Advisors Grid */}
-            <section className="section-padding">
-                <div className="container-custom">
-                    <StaggerContainer className="grid lg:grid-cols-2 gap-8">
-                        {advisors.map((advisor) => (
-                            <StaggerItem key={advisor.name}>
-                                <AdvisorCard advisor={advisor} />
-                            </StaggerItem>
-                        ))}
-                    </StaggerContainer>
-                </div>
-            </section>
+            {/* Full-Screen Advisor Sections */}
+            {advisors.map((advisor, index) => (
+                <section
+                    key={advisor.name}
+                    className="relative min-h-[80vh] md:min-h-screen flex items-center overflow-hidden"
+                    style={{
+                        background: index % 2 === 0
+                            ? 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%)'
+                            : 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)'
+                    }}
+                >
+                    {/* Background blur effects */}
+                    <div className="absolute inset-0 overflow-hidden">
+                        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary-500/10 rounded-full blur-[120px]" />
+                        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-500/10 rounded-full blur-[120px]" />
+                    </div>
+
+                    {/* Top/Bottom gradient fade for seamless transitions */}
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/5 to-transparent" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/5 to-transparent" />
+
+                    <div className="container-custom relative z-10 w-full">
+                        <div className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 lg:gap-16`}>
+
+                            {/* Image Side */}
+                            <motion.div
+                                className="w-full lg:w-1/2"
+                                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ duration: 0.7, ease: 'easeOut' }}
+                            >
+                                <div className="relative">
+                                    {/* Image container with soft edges */}
+                                    <div className="relative overflow-hidden rounded-3xl">
+                                        <img
+                                            src={advisor.image}
+                                            alt={advisor.name}
+                                            className="w-full h-[350px] md:h-[450px] lg:h-[550px] object-cover object-top"
+                                        />
+                                        {/* Soft gradient overlay for blending */}
+                                        <div className={`absolute inset-0 ${index % 2 === 0
+                                                ? 'bg-gradient-to-r from-transparent via-transparent to-[#1a1a2e]/80'
+                                                : 'bg-gradient-to-l from-transparent via-transparent to-[#1a1a2e]/80'
+                                            }`} />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e]/60 via-transparent to-transparent" />
+                                    </div>
+
+                                    {/* Index badge */}
+                                    <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 text-white/90 text-sm font-medium border border-white/10">
+                                        {String(index + 1).padStart(2, '0')} / {String(advisors.length).padStart(2, '0')}
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* Content Side */}
+                            <motion.div
+                                className="w-full lg:w-1/2 text-center lg:text-left"
+                                initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+                            >
+                                <motion.h2
+                                    className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.3 }}
+                                >
+                                    {advisor.name}
+                                </motion.h2>
+
+                                <motion.p
+                                    className="text-primary-400 font-semibold text-xl md:text-2xl mb-6"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.4 }}
+                                >
+                                    {advisor.role}
+                                </motion.p>
+
+                                <motion.p
+                                    className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.5 }}
+                                >
+                                    {advisor.bio}
+                                </motion.p>
+
+                                {/* Expertise tags */}
+                                {advisor.expertise && advisor.expertise.length > 0 && (
+                                    <motion.div
+                                        className="flex flex-wrap justify-center lg:justify-start gap-3"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.6 }}
+                                    >
+                                        {advisor.expertise.map((skill, idx) => (
+                                            <span
+                                                key={idx}
+                                                className="px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full text-base text-white/90 border border-white/20 hover:bg-white/20 transition-colors"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </motion.div>
+                                )}
+                            </motion.div>
+                        </div>
+                    </div>
+
+                    {/* Scroll indicator for first section */}
+                    {index === 0 && (
+                        <motion.div
+                            className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                        >
+                            <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2">
+                                <div className="w-1.5 h-3 bg-white/50 rounded-full" />
+                            </div>
+                        </motion.div>
+                    )}
+                </section>
+            ))}
 
             {/* Join Section */}
             <section className="section-padding bg-gradient-to-br from-primary-50 to-secondary-50">
