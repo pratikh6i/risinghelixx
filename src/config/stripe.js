@@ -1,5 +1,5 @@
 // Stripe Configuration for Rising Helixx K-12 Education Platform
-// Courses: Python (by Key Stage) + Math (Subscription)
+// Courses: Python (Project-Based), SAT Maths, Robotics (Project-Based)
 
 // Demo mode - set to false when ready for production
 export const DEMO_MODE = true
@@ -18,7 +18,7 @@ export const keyStages = [
     { id: 'ks4', name: 'Key Stage 4', grades: 'Grades 10-11', ageRange: '14-16 years' },
 ]
 
-// Python Courses by Key Stage
+// Python Courses by Key Stage - Project-Based Learning
 export const pythonCourses = [
     {
         id: 'python-ks1',
@@ -31,7 +31,9 @@ export const pythonCourses = [
         ageRange: '5-7 years',
         priceGBP: 49,
         priceINR: 4999,
+        isProjectBased: true,
         features: [
+            'Project-Based Learning',
             'Visual block-based coding',
             'Scratch Jr projects',
             'Fun animations & stories',
@@ -39,7 +41,7 @@ export const pythonCourses = [
             'Certificate on completion',
         ],
         image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600',
-        badge: 'Age 5-7',
+        badge: 'Project-Based',
         color: 'from-pink-500 to-rose-500',
     },
     {
@@ -53,7 +55,9 @@ export const pythonCourses = [
         ageRange: '7-11 years',
         priceGBP: 79,
         priceINR: 7999,
+        isProjectBased: true,
         features: [
+            'Project-Based Learning',
             'Python basics & syntax',
             'Turtle graphics projects',
             'Simple game development',
@@ -62,7 +66,7 @@ export const pythonCourses = [
             'Certificate on completion',
         ],
         image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600',
-        badge: 'Age 7-11',
+        badge: 'Project-Based',
         color: 'from-blue-500 to-cyan-500',
     },
     {
@@ -76,7 +80,9 @@ export const pythonCourses = [
         ageRange: '11-14 years',
         priceGBP: 99,
         priceINR: 9999,
+        isProjectBased: true,
         features: [
+            'Project-Based Learning',
             'Python fundamentals',
             'Data structures & loops',
             'Functions & modules',
@@ -85,7 +91,7 @@ export const pythonCourses = [
             'Industry-aligned curriculum',
         ],
         image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600',
-        badge: 'Age 11-14',
+        badge: 'Project-Based',
         color: 'from-indigo-500 to-purple-500',
     },
     {
@@ -99,7 +105,9 @@ export const pythonCourses = [
         ageRange: '14-16 years',
         priceGBP: 149,
         priceINR: 14999,
+        isProjectBased: true,
         features: [
+            'Project-Based Learning',
             'Advanced algorithms',
             'Object-Oriented Programming',
             'Web development basics',
@@ -108,61 +116,13 @@ export const pythonCourses = [
             'College application ready',
         ],
         image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600',
-        badge: 'Age 14-16',
+        badge: 'Project-Based',
         color: 'from-purple-500 to-pink-500',
     },
 ]
 
-// Math Courses (Subscription-based)
+// SAT Math Course
 export const mathCourses = [
-    {
-        id: 'math-foundation',
-        name: 'Math Foundation',
-        subtitle: 'Building Strong Basics',
-        keyStage: 'ks1-ks2',
-        description: 'Fun and engaging math for young learners. Build a strong foundation in arithmetic, shapes, and basic problem-solving.',
-        level: 'Foundation',
-        ageRange: '5-10 years',
-        priceGBP: 19,
-        priceINR: 1499,
-        billingCycle: 'monthly',
-        features: [
-            'Arithmetic mastery',
-            'Shapes & geometry basics',
-            'Word problems',
-            'Weekly practice tests',
-            'Progress reports for parents',
-            'Gamified learning',
-        ],
-        image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600',
-        badge: 'Monthly',
-        color: 'from-green-500 to-emerald-500',
-        isSubscription: true,
-    },
-    {
-        id: 'math-intermediate',
-        name: 'Math Mastery',
-        subtitle: 'Algebra & Geometry Excellence',
-        keyStage: 'ks3',
-        description: 'Comprehensive math program covering algebra, geometry, and early SAT preparation with regular assessments.',
-        level: 'Intermediate',
-        ageRange: '11-14 years',
-        priceGBP: 29,
-        priceINR: 2499,
-        billingCycle: 'monthly',
-        features: [
-            'Algebra fundamentals',
-            'Geometry & trigonometry',
-            'SAT prep introduction',
-            'Monthly mock tests',
-            'Detailed analytics',
-            'Live doubt sessions',
-        ],
-        image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=600',
-        badge: 'Monthly',
-        color: 'from-amber-500 to-orange-500',
-        isSubscription: true,
-    },
     {
         id: 'math-sat-prep',
         name: 'SAT Math Champion',
@@ -191,8 +151,87 @@ export const mathCourses = [
     },
 ]
 
+// Robotics Courses - Project-Based Learning
+export const roboticsCourses = [
+    {
+        id: 'robotics-beginner',
+        name: 'Robotics Explorers',
+        subtitle: 'Build Your First Robot',
+        keyStage: 'ks2',
+        description: 'Hands-on introduction to robotics! Build, program, and control your own robots while learning fundamental engineering concepts.',
+        level: 'Beginner',
+        duration: '4 months',
+        ageRange: '7-11 years',
+        priceGBP: 89,
+        priceINR: 8999,
+        isProjectBased: true,
+        features: [
+            'Project-Based Learning',
+            'Build real robots',
+            'Block-based programming',
+            'Sensors & motors basics',
+            'Team challenges',
+            'Take-home projects',
+            'Certificate on completion',
+        ],
+        image: 'https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=600',
+        badge: 'Project-Based',
+        color: 'from-teal-500 to-cyan-500',
+    },
+    {
+        id: 'robotics-intermediate',
+        name: 'Robotics Engineers',
+        subtitle: 'Advanced Robot Building',
+        keyStage: 'ks3',
+        description: 'Take robotics to the next level with advanced sensors, automation, and Arduino programming.',
+        level: 'Intermediate',
+        duration: '6 months',
+        ageRange: '11-14 years',
+        priceGBP: 129,
+        priceINR: 12999,
+        isProjectBased: true,
+        features: [
+            'Project-Based Learning',
+            'Arduino programming',
+            'Advanced sensors',
+            'Automation concepts',
+            'Competition prep',
+            'Real-world applications',
+            'Industry mentorship',
+        ],
+        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600',
+        badge: 'Project-Based',
+        color: 'from-orange-500 to-amber-500',
+    },
+    {
+        id: 'robotics-advanced',
+        name: 'Robotics Innovators',
+        subtitle: 'AI & Advanced Robotics',
+        keyStage: 'ks4',
+        description: 'Cutting-edge robotics with AI integration, machine learning basics, and advanced automation for future engineers.',
+        level: 'Advanced',
+        duration: '9 months',
+        ageRange: '14-16 years',
+        priceGBP: 179,
+        priceINR: 17999,
+        isProjectBased: true,
+        features: [
+            'Project-Based Learning',
+            'AI-powered robots',
+            'Machine learning basics',
+            'Computer vision intro',
+            'IoT integration',
+            'Capstone project',
+            'College portfolio ready',
+        ],
+        image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600',
+        badge: 'Project-Based',
+        color: 'from-violet-500 to-purple-500',
+    },
+]
+
 // Combined courses for display
-export const courses = [...pythonCourses, ...mathCourses]
+export const courses = [...pythonCourses, ...mathCourses, ...roboticsCourses]
 
 // Currency conversion (approximate)
 export const currencyRates = {
@@ -232,6 +271,7 @@ export default {
     keyStages,
     pythonCourses,
     mathCourses,
+    roboticsCourses,
     courses,
     currencyRates,
     formatPrice,

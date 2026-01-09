@@ -1,15 +1,16 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, BookOpen, Code, Calculator, ArrowRight, School, CheckCircle2, Radio, Users, Sparkles, Zap, Video, MessageCircle } from 'lucide-react'
+import { Search, BookOpen, Code, Calculator, ArrowRight, School, CheckCircle2, Radio, Users, Sparkles, Zap, Video, MessageCircle, Cpu } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/AnimatedSection'
-import { pythonCourses, mathCourses, keyStages } from '../config/stripe'
+import { pythonCourses, mathCourses, roboticsCourses, keyStages } from '../config/stripe'
 
 // Course type tabs
 const courseTabs = [
     { id: 'all', name: 'All Courses', icon: BookOpen },
     { id: 'python', name: 'Python', icon: Code },
-    { id: 'math', name: 'Math & SAT', icon: Calculator },
+    { id: 'sat', name: 'SAT Maths', icon: Calculator },
+    { id: 'robotics', name: 'Robotics', icon: Cpu },
 ]
 
 // Page transition variants
@@ -60,8 +61,9 @@ export default function Courses() {
     // Get courses based on type
     const allCourses = useMemo(() => {
         if (selectedType === 'python') return pythonCourses
-        if (selectedType === 'math') return mathCourses
-        return [...pythonCourses, ...mathCourses]
+        if (selectedType === 'sat') return mathCourses
+        if (selectedType === 'robotics') return roboticsCourses
+        return [...pythonCourses, ...mathCourses, ...roboticsCourses]
     }, [selectedType])
 
     // Filter courses based on search and key stage

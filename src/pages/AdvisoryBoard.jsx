@@ -119,7 +119,7 @@ export default function AdvisoryBoard() {
             {/* Advisors Grid */}
             <section className="section-padding">
                 <div className="container-custom">
-                    <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <StaggerContainer className="grid lg:grid-cols-2 gap-8">
                         {advisors.map((advisor) => (
                             <StaggerItem key={advisor.name}>
                                 <AdvisorCard advisor={advisor} />
