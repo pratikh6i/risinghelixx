@@ -130,7 +130,8 @@ export default function AuthModal({ isOpen, onClose }) {
                         <div className="bg-gradient-to-r from-primary-500 to-secondary-500 p-6 text-white">
                             <button
                                 onClick={onClose}
-                                className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors"
+                                className="absolute top-4 right-4 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center hover:bg-white/20 rounded-full transition-colors"
+                                aria-label="Close login dialog"
                             >
                                 <X className="w-5 h-5" />
                             </button>
@@ -243,7 +244,8 @@ export default function AuthModal({ isOpen, onClose }) {
                                                 <button
                                                     type="button"
                                                     onClick={() => setShowPassword(!showPassword)}
-                                                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600"
+                                                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-400 hover:text-gray-600"
+                                                    aria-label={showPassword ? 'Hide password' : 'Show password'}
                                                 >
                                                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                                                 </button>

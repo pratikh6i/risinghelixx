@@ -69,7 +69,7 @@ export default function Footer() {
                             </div>
                             <span className="text-xl font-display font-bold">Rising Helixx</span>
                         </Link>
-                        <p className="text-gray-400 mb-6 max-w-sm">
+                        <p className="text-gray-300 mb-6 max-w-sm">
                             Empowering the next generation of learners with cutting-edge courses
                             and expert-led education. Join thousands of students transforming their careers.
                         </p>
@@ -78,19 +78,19 @@ export default function Footer() {
                         <div className="space-y-3">
                             <a
                                 href={`mailto:${CONTACT_EMAIL}`}
-                                className="flex items-center gap-3 text-gray-400 hover:text-primary-400 transition-colors"
+                                className="flex items-center gap-3 text-gray-300 hover:text-primary-400 transition-colors"
                             >
                                 <Mail className="w-4 h-4" />
                                 <span>{CONTACT_EMAIL}</span>
                             </a>
                             <a
                                 href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}
-                                className="flex items-center gap-3 text-gray-400 hover:text-primary-400 transition-colors"
+                                className="flex items-center gap-3 text-gray-300 hover:text-primary-400 transition-colors"
                             >
                                 <Phone className="w-4 h-4" />
                                 <span>{CONTACT_PHONE}</span>
                             </a>
-                            <div className="flex items-center gap-3 text-gray-400">
+                            <div className="flex items-center gap-3 text-gray-300">
                                 <span>{CONTACT_LOCATION}</span>
                             </div>
                             <a
@@ -113,7 +113,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         to={link.path}
-                                        className="text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-1 group"
+                                        className="text-gray-300 hover:text-primary-400 transition-colors inline-flex items-center gap-1 group"
                                     >
                                         {link.name}
                                         <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -130,7 +130,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         to={link.path}
-                                        className="text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-1 group"
+                                        className="text-gray-300 hover:text-primary-400 transition-colors inline-flex items-center gap-1 group"
                                     >
                                         {link.name}
                                         <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -147,7 +147,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         to={link.path}
-                                        className="text-gray-400 hover:text-primary-400 transition-colors inline-flex items-center gap-1 group"
+                                        className="text-gray-300 hover:text-primary-400 transition-colors inline-flex items-center gap-1 group"
                                     >
                                         {link.name}
                                         <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -160,7 +160,7 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="py-6 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-gray-300 text-sm">
                         © {new Date().getFullYear()} Rising Helixx. All rights reserved.
                     </p>
 
@@ -174,7 +174,7 @@ export default function Footer() {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.1, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary-500 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+                                className="w-10 h-10 rounded-full bg-gray-800 hover:bg-primary-500 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
                                 aria-label={social.label}
                             >
                                 <social.icon className="w-4 h-4" />

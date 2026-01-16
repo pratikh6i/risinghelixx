@@ -27,7 +27,8 @@ export default function VideoModal({ isOpen, onClose, videoId = 'jmoPo11ktN4' })
                             {/* Close Button */}
                             <button
                                 onClick={onClose}
-                                className="absolute -top-12 right-0 p-2 text-white/80 hover:text-white transition-colors z-10"
+                                className="absolute -top-12 right-0 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-white/80 hover:text-white transition-colors z-10"
+                                aria-label="Close video"
                             >
                                 <X className="w-8 h-8" />
                             </button>

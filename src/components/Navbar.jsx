@@ -97,7 +97,9 @@ export default function Navbar({ onLoginClick }) {
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         onClick={() => setIsProfileOpen(!isProfileOpen)}
-                                        className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-100 transition-colors"
+                                        className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-100 transition-colors min-h-[44px]"
+                                        aria-label="Open user profile menu"
+                                        aria-expanded={isProfileOpen}
                                     >
                                         <img
                                             src={user.profileImage || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&background=6366f1&color=fff`}
@@ -182,7 +184,9 @@ export default function Navbar({ onLoginClick }) {
                         <motion.button
                             whileTap={{ scale: 0.9 }}
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="lg:hidden p-2 text-gray-600 hover:text-primary-600 transition-colors"
+                            className="lg:hidden p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-gray-600 hover:text-primary-600 transition-colors"
+                            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                            aria-expanded={isMobileMenuOpen}
                         >
                             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                         </motion.button>

@@ -244,7 +244,7 @@ export default function Home() {
                                         <stat.icon className="w-7 h-7 text-primary-400" />
                                     </div>
                                     <p className="text-4xl font-bold text-white mb-2">{stat.value}</p>
-                                    <p className="text-gray-400">{stat.label}</p>
+                                    <p className="text-gray-300">{stat.label}</p>
                                 </div>
                             </StaggerItem>
                         ))}
@@ -433,7 +433,7 @@ export default function Home() {
                                         <feature.icon className="w-7 h-7 text-white" />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                                    <p className="text-gray-400">{feature.description}</p>
+                                    <p className="text-gray-300">{feature.description}</p>
                                 </motion.div>
                             </StaggerItem>
                         ))}
