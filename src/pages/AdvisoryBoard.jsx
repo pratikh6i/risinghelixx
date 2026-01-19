@@ -10,51 +10,13 @@ const advisors = [
         name: 'Dr. Liu Xin',
         role: 'Ph.D. in Knowledge and Innovation Management',
         image: '/assets/Dr_Liu_Xin.jpg',
-        bio: 'Distinguished scholar specializing in knowledge management and innovation. Brings extensive expertise in educational technology and organizational learning strategies.',
+        bio: 'In today\'s rapidly changing world, education and educational tools play an essential role in shaping students\' future success. Modern learning environments demand critical thinking, creativity, collaboration, and digital literacy. Effective educational tools help students access information, engage deeply, and develop skills to thrive. Therefore, education and its supporting tools are vital foundations for lifelong learning and personal development.',
     },
     {
-        name: 'Marcus Williams',
-        role: 'Technology Advisor',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-        bio: 'Ex-Google Engineering Director. Led teams building AI-powered learning platforms reaching millions of users globally.',
-        expertise: ['AI/ML', 'Platform Architecture', 'Scalability'],
-        linkedin: 'https://linkedin.com',
-        email: 'marcus@risinghelixx.com',
-    },
-    {
-        name: 'Dr. Priya Sharma',
-        role: 'Learning Science Advisor',
-        image: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400',
-        bio: 'PhD in Cognitive Psychology from MIT. Pioneering researcher in adaptive learning and personalized education pathways.',
-        expertise: ['Cognitive Science', 'Adaptive Learning', 'Research'],
-        linkedin: 'https://linkedin.com',
-        twitter: 'https://twitter.com',
-    },
-    {
-        name: 'James O\'Connor',
-        role: 'Industry Partnerships Advisor',
-        image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
-        bio: 'Former VP at Microsoft. Built strategic partnerships with 500+ organizations for workforce development programs.',
-        expertise: ['Corporate Training', 'Partnerships', 'Strategy'],
-        linkedin: 'https://linkedin.com',
-        email: 'james@risinghelixx.com',
-    },
-    {
-        name: 'Dr. Aisha Mohammed',
-        role: 'Diversity & Inclusion Advisor',
-        image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400',
-        bio: 'Champion of accessible education. Led initiatives bringing quality education to underserved communities across 30+ countries.',
-        expertise: ['DEI', 'Global Education', 'Accessibility'],
-        linkedin: 'https://linkedin.com',
-        twitter: 'https://twitter.com',
-    },
-    {
-        name: 'Robert Chen',
-        role: 'Finance & Growth Advisor',
-        image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400',
-        bio: 'Partner at Sequoia Capital. Invested in 20+ successful EdTech startups with combined valuation exceeding $10B.',
-        expertise: ['Venture Capital', 'EdTech Investment', 'Growth Strategy'],
-        linkedin: 'https://linkedin.com',
+        name: 'Pradorn Sureephong',
+        role: 'Doctoral Program Director, Chiang Mai University, Thailand',
+        image: '/assets/Pradorn_Sureephong.jpg',
+        bio: 'Leading academic and researcher in digital innovation and educational technology. Directs doctoral programs focused on knowledge management, digital transformation, and innovative learning methodologies.',
     },
 ]
 
@@ -162,11 +124,6 @@ export default function AdvisoryBoard() {
                                             : 'bg-gradient-to-l from-transparent via-transparent to-[#1a1a2e]/80'
                                             }`} />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e]/60 via-transparent to-transparent" />
-                                    </div>
-
-                                    {/* Index badge */}
-                                    <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 text-white/90 text-sm font-medium border border-white/10">
-                                        {String(index + 1).padStart(2, '0')} / {String(advisors.length).padStart(2, '0')}
                                     </div>
                                 </div>
                             </motion.div>
