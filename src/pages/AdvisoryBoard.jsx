@@ -238,9 +238,9 @@ export default function AdvisoryBoard() {
                 </div>
 
                 <div className="container-custom relative">
-                    <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <StaggerContainer className="grid grid-cols-3 gap-8 text-center">
                         <StaggerItem>
-                            <p className="text-4xl font-bold text-white mb-2">150+</p>
+                            <p className="text-4xl font-bold text-white mb-2">50+</p>
                             <p className="text-gray-300">Years Combined Experience</p>
                         </StaggerItem>
                         <StaggerItem>
@@ -248,12 +248,8 @@ export default function AdvisoryBoard() {
                             <p className="text-gray-300">Industry Verticals</p>
                         </StaggerItem>
                         <StaggerItem>
-                            <p className="text-4xl font-bold text-white mb-2">30+</p>
+                            <p className="text-4xl font-bold text-white mb-2">2</p>
                             <p className="text-gray-300">Countries Represented</p>
-                        </StaggerItem>
-                        <StaggerItem>
-                            <p className="text-4xl font-bold text-white mb-2">$10B+</p>
-                            <p className="text-gray-300">Portfolio Value</p>
                         </StaggerItem>
                     </StaggerContainer>
                 </div>

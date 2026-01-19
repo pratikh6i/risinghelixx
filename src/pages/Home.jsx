@@ -50,7 +50,7 @@ const features = [
 const testimonials = [
     {
         name: 'Mrs. Sharma',
-        role: 'Principal, Delhi Public School',
+        role: 'Principal, Housabai Magdum School',
         image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150',
         quote: 'Rising Helixx transformed how our students learn coding. The key-stage curriculum aligns perfectly with our academic goals.',
         rating: 5,
