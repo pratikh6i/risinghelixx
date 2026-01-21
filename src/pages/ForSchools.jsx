@@ -113,7 +113,7 @@ const testimonials = [
 const partnershipStats = {
     totalSlots: 50,
     filledSlots: 38,
-    currentYear: '2025-26',
+    currentYear: '2026-27',
 }
 
 // Success metrics
