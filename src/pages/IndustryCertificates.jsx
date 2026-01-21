@@ -83,7 +83,7 @@ export default function IndustryCertificates() {
                         className="inline-flex items-center gap-3 mb-10 px-6 py-3 bg-dark/5 rounded-2xl"
                     >
                         <span className="animate-pulse text-primary-500">●</span>
-                        <span className="font-mono text-dark font-medium">Launching Q2 2025</span>
+                        <span className="font-mono text-dark font-medium">Launching Q1 2026</span>
                         <span className="animate-pulse text-secondary-500">●</span>
                     </motion.div>
 

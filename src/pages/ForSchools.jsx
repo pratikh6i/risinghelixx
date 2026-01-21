@@ -37,7 +37,7 @@ const urgencyPoints = [
     },
     {
         stat: '3.5M',
-        description: 'tech jobs unfilled globally by 2025',
+        description: 'tech jobs unfilled globally by 2026',
         source: 'McKinsey Report'
     },
     {
@@ -53,7 +53,7 @@ const outcomes = [
         icon: Brain,
         title: 'Future-Ready Students',
         description: 'Equip students with AI, coding, and computational thinking skills that employers are desperately seeking.',
-        highlight: 'Critical for 2025+',
+        highlight: 'Critical for 2026+',
     },
     {
         icon: TrendingUp,
@@ -113,7 +113,7 @@ const testimonials = [
 const partnershipStats = {
     totalSlots: 50,
     filledSlots: 38,
-    currentYear: '2024-25',
+    currentYear: '2025-26',
 }
 
 // Success metrics

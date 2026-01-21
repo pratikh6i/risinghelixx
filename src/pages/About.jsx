@@ -39,11 +39,11 @@ const values = [
 // Milestones
 const milestones = [
     { year: '2019', title: 'Founded', description: 'Rising Helixx was born with a vision to democratize quality education.' },
-    { year: '2020', title: 'First 1,000 Students', description: 'Reached our first milestone during the global shift to online learning.' },
-    { year: '2021', title: 'Global Expansion', description: 'Extended our reach to 50+ countries with multilingual support.' },
-    { year: '2022', title: 'Industry Partnerships', description: 'Partnered with leading tech companies for job placement programs.' },
-    { year: '2023', title: '10,000+ Graduates', description: 'Celebrated our growing community of successful alumni.' },
-    { year: '2024', title: 'AI-Powered Learning', description: 'Launched personalized learning paths powered by artificial intelligence.' },
+    { year: '2022', title: 'First 1,000 Students', description: 'Reached our first milestone during the global shift to online learning.' },
+    { year: '2023', title: 'Global Expansion', description: 'Extended our reach to 50+ countries with multilingual support.' },
+    { year: '2024', title: 'Industry Partnerships', description: 'Partnered with leading tech companies for job placement programs.' },
+    { year: '2025', title: '10,000+ Graduates', description: 'Celebrated our growing community of successful alumni.' },
+    { year: '2026', title: 'AI-Powered Learning', description: 'Launching personalized learning paths powered by artificial intelligence.' },
 ]
 
 // Team members
